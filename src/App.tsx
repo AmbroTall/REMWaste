@@ -258,7 +258,7 @@ const SkipHireApp: React.FC = () => {
   if (loading) return <LoadingSpinner />;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 relative">
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
         <div
@@ -271,7 +271,7 @@ const SkipHireApp: React.FC = () => {
         ></div>
       </div>
       <ProgressSteps steps={steps} currentStep={currentStep} />
-      <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-12">
+      <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-12 pb-32">
         <HeroSection />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {skips.map((skip) => (
@@ -288,25 +288,19 @@ const SkipHireApp: React.FC = () => {
           ))}
         </div>
       </main>
-      {/* Fixed Footer with Selected Skip Display */}
-      <footer className="fixed bottom-0 left-0 w-full bg-white/10 backdrop-blur-md border-t border-white/20 z-20 p-4">
-        <div className="max-w-7xl mx-auto">
-          {selectedSkip ? (
+      {/* Conditional footer */}
+      {selectedSkip && (
+        <footer className="fixed bottom-0 left-0 w-full bg-white/10 backdrop-blur-md border-t border-white/20 z-20 p-4">
+          <div className="max-w-7xl mx-auto">
             <SelectedSkipDisplay
               selectedSkip={selectedSkip}
               skips={skips}
               calculateTotalPrice={calculateTotalPrice}
               setCurrentStep={setCurrentStep}
             />
-          ) : (
-            <p className="text-center text-sm text-purple-200">
-              Imagery and information shown throughout this website may not
-              reflect the exact shape or size specification, colours may vary,
-              options and/or accessories may be featured at additional cost.
-            </p>
-          )}
-        </div>
-      </footer>
+          </div>
+        </footer>
+      )}
     </div>
   );
 };

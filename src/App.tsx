@@ -273,7 +273,9 @@ const SkipHireApp: React.FC = () => {
       <ProgressSteps steps={steps} currentStep={currentStep} />
       <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-12 pb-32">
         <HeroSection />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-12">
+          {" "}
+          {/* Added mb-8 for bottom space */}
           {skips.map((skip) => (
             <SkipCard
               key={skip.id}
